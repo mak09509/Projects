@@ -1,0 +1,26 @@
+\documentclass[12pt, letterpaper]{article}
+\pagestyle{empty}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\allowdisplaybreaks
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+\begin{document}
+
+\begin{alignat*} \vec{r_f} \quad &= \quad \vec{r_i} \; + \; \vec{v}(t_f - t_i) \\
+    \vec{v_f} \quad &=  \quad   \vec{v_i} \; + \; \vec{a}(t_f - t_i) \\
+    \vec{r_f} \quad &=  \quad   \vec{r_i} \; + \;  \vec{v_i}dt \; + \;
+                        \quad (\vec{v_i} + \vec{a}dt)dt \; + \;
+                    &   \quad (\vec{v_i} + 2\vec{a}dt)dt \; + \;
+                    &   \quad (\vec{v_i} + 3\vec{a}dt)dt \; + \; \\
+                    &   \quad (\vec{v_i} + 4\vec{a}dt)dt \; + \; \\
+                    &   \quad (\vec{v_i} + 5\vec{a}dt)dt \; + \; \\
+                    &   \quad (\vec{v_i} + 6\vec{a}dt)dt \\
+\end{alignat*}
+
+\end{document}

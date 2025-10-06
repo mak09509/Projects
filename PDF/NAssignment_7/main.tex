@@ -1,0 +1,123 @@
+\documentclass[12pt, letterpaper]{article}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb} \allowdisplaybreaks
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[margin=10mm]{geometry}
+\usepackage{bm}
+
+\begin{document}
+
+\definecolor{myColor}{HTML}{03468F}
+\color{myColor}
+\everymath{\displaystyle}
+
+1.1 \quad $ f(x) = (x^2 + 3x - 1)^7 + (3 - \sqrt{x})^6 $
+\begin{gather*}
+    a(x) = x^7 \qquad
+    b(x) = x^6 \\
+    p(x) = x^2 + 3x - 1 \qquad q(x) = 3 - \sqrt{x} \\[8mm]
+    f(x) = a(p(x))b(q(x)) \\
+    f'(x) = a(p(x))[b(q(x))]' + [a(p(x))]'b(q(x)) \\
+    \bm{f'(x) = (x^2 + 3x - 1)^7[6(-x^{\frac{1}{2}} + 3)^5\left[\frac{-1}{2\sqrt{x}}\right]] \quad + \quad
+            (3 - \sqrt{x})^6[7(x^2 + 3x - 1)^6[2x+3]]} \\[8mm]
+    f'(1) = ((1)^2 + 3(1) - 1)^7[6(-(1)^{\frac{1}{2}} + 3)^5\left[\frac{-1}{2\sqrt{1}}\right]] +
+            (3 - \sqrt{1})^6[7(1^2 + 3(1) - 1)^6[2(1)+3]] \\
+    f'(1) = (3^7)(6)(2^5)\left(\frac{-1}{2}\right) +
+            (2^6)(7)(3^6)(5) \\
+    \bm{f'(1) = 1423008}
+\end{gather*}
+
+1.2 \quad $ f(x) = \frac{(3x^2 - x)^5}{(4x^3 - x^2 - 1)^8}$
+\begin{gather*}
+    a(x) = x^5 \qquad
+    b(x) = x^8 \\
+    p(x) = 3x^2 - x \qquad q(x) = 4x^3 - x^2 - 1 \\[8mm]
+    f(x) = \frac{a(p(x))}{b(q(x))} \\
+    f'(x) = \frac{[a(p(x))]'b(q(x)) - a(p(x))[b(q(x))]'}{b(q(x))^2} \\
+    \bm{f'(x) = \frac   {5(3x^2 - x)^4(6x-1)(4x^3 - x^2 - 1)^8 - (3x^2 - x)^5(8)(4x^3 - x^2 - 1)^7(12x^2 - 2x)}
+                        {(4x^3 - x^2 - 1)^{16}}} \\[8mm]
+    f'(1) = \frac   {5(3(1)^2 - 1)^4(6(1)-1)(4(1)^3 - (1)^2 - 1)^8 - (3(1)^2 - 1)^5(8)(4(1)^3 - (1)^2 - 1)^7(12(1)^2 - 2(1))}
+                    {(4(1)^3 - (1)^2 - 1)^{16}} \\
+    f'(1) = \frac{5(2^4)(5)(2^8) - (2^5)(8)(2^7)(10)}{2^{16}} \\
+    \bm{f'(1) = -\frac{55}{16}}
+\end{gather*}
+
+2. \quad $ g(x) = \sqrt[3]{x}f(x), \quad f(4) = 3, \quad f'(4) = -5 $
+\begin{gather*}
+    g'(x) = \frac{1}{3}x^{\frac{-2}{3}}f(x) + \sqrt[3]{x}f'(x) \\
+    g'(4) = \frac{1}{3}4^{\frac{-2}{3}}f(4) + \sqrt[3]{4}f'(4) \\
+    g'(4) = \frac{1}{3}4^{\frac{-2}{3}}(3) + \sqrt[3]{4}(-5) \\
+    g'(4) = 4^{\frac{-2}{3}} - 5\sqrt[3]{4}\\
+    \bm{g'(4) \approx -7.54}
+\end{gather*}
+
+\newpage
+
+3. \quad $ f(x) = \begin{cases}
+    g(x) &,x \leq 1 \\
+    x^3 + 2x &,x > 1
+\end{cases}$ \; is continuous at $x=1$, $ (f \circ g)'(1) = 58 $
+\begin{gather*}
+    f(x) \; \text{is continuous at $x = 1$} \iff \lim_{a \to 1^-}f(a) = \lim_{a \to 1^+}f(a) = f(a)  \\
+    g(1) = (1)^3 + 2(1) \\
+    g(1) = 3 \\[8mm]
+    (f \circ g)'(1) = 58 \\
+    f'(g(1))g'(1) = 58 \\
+    f'(3)g'(1) = 58 \\
+    [3(3)^2 + 2]g'(1) = 58 \\
+    \bm{g'(1) = 2} \\
+\end{gather*}
+
+4. \quad $ G(x) = f(xf(x^{-1}f(x))), \; f(1) = 2, \; f(2) = 3, \; f'(1) = 4, \; f'(2) = 5, \; f'(3) = 6$
+\begin{gather*}
+    a(x) = f(x^{-1}f(x)) \\
+    G(x) = f(xa(x)) \\[8mm]
+    G'(x) = f'(xa(x))[x(a(x))]' \\
+    G'(x) = f'(xa(x))[a(x) + xa'(x)] \\
+    G'(x) = f'(xa(x))[a(x) + x[f'(x^{-1}f(x))[-x^{-2}f(x) + f'(x)x^{-1}]]] \\
+    G'(x) = f'(xf(\frac{f(x)}{x}))\left[ f(\frac{f(x)}{x}) +
+    x\left[ f'(\frac{f(x)}{x})\left[ \frac{-f(x)}{x^2} + \frac{f'(x)}{x}\right] \right] \right] \\[8mm]
+    G'(1) = f'(1f(\frac{2}{1}))\left[ f(\frac{2}{1}) +
+    1\left[ f'(\frac{2}{1})\left[ \frac{-2}{1^2} + \frac{4}{1}\right] \right] \right] \\
+    G'(1) = 6[3 + 5[-2 + 4]] \\
+    \bm{G'(1) = 78}
+\end{gather*}
+
+5. \quad $ f, g, s : \mathbb{R} \to \mathbb{R}, \; f(x) = x + 1, \; g(f(x)) = x^2 + 2x - 1, \;
+s(x) = \lim_{h\to0}\frac{g(x+h)^2 - g(x)^2}{h} $
+\begin{gather*}
+    g(x+1) = x^2 + 2x - 1 \\
+    g(x+1) = (x + 1)^2 - 2 \\
+    g(x) = x^2 - 2 \\[8mm]
+    s(x) = \frac{dg(x)^2}{dx} \\
+    s(x) = \frac{d[x^4 - 4x^2 + 4]}{dx} \\
+    s(x) = 4x^3 - 8x \\[8mm]
+    sg(x) = (4x^3 - 8x)(x^2 - 2) \\
+    sg(1) = (4(1)^3 - 8(1))(1^2 - 2) \\
+    \bm{sg(1) = 4}
+\end{gather*}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
